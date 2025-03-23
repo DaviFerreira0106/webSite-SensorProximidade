@@ -1,10 +1,11 @@
+{% load static %}
 <!doctype html>
 <html>
   <head>
     <meta charset=utf-8>
     <meta name=viewport content="width=device-width, initial-scale=1">
-    <link rel=preload as=image href=/sensor-de-movimento-pir.jpg>
-    <link rel=preload as=image href=/sensor-de-proximidade.jpg>
+    <link rel=preload as=image href={% static "sensor-de-proximidade.jpg" %}>
+    <link rel=preload as=image href={% static "sensor-de-movimento-pir.jpg" %}>
     <style>
 * {
   margin: 0;
@@ -14,6 +15,7 @@
 
 body {
   background-color: #121212;
+  color: #fff;
   font-family: "Roboto";
   font-weight: 400;
   font-size: 1rem;
@@ -86,11 +88,11 @@ img {
         <h2>Projetos com ESP32</h2>
         <div class=container>
           <a href=https://wokwi.com/projects/426156036988950529>
-            <img src=/sensor-de-proximidade.jpg>
+            <img src={% static "sensor-de-proximidade.jpg" %}>
             <p>Sensor de Proximidade</p>
           </a>
           <a href=https://wokwi.com/projects/426177816895431681>
-            <img src=/sensor-de-movimento-pir.jpg>
+            <img src={% static "sensor-de-movimento-pir.jpg" %}>
             <p>Sensor de Movimento</p>
           </a>
         </div>
