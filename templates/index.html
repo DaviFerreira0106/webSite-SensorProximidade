@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <link rel=preload as=image href=/sensor-de-movimento-pir.jpg>
+    <link rel=preload as=image href=/sensor-de-proximidade.jpg>
+    <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #121212;
+  font-family: "Roboto";
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+  letter-spacing: 0.00938em;
+  -webkit-text-size-adjust: #121212;
+}
+
+h2 { text-align: center; }
+
+section {
+  max-width: 900px;
+  margin: 32px auto 64px;
+  font-family: sans-serif;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  margin-top: 50px;
+  max-width: 260px;
+}
+
+@media screen and (min-width: 620px) {
+  .container { max-width: 620px; }
+}
+
+@media screen and (min-width: 920px) {
+  .container { max-width: 920px; }
+}
+
+a {
+  background-color: #404041;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: #fff;
+  margin: 8px 16px;
+  padding: 2px;
+  width: 330px;
+  height: 200px;
+  overflow: hidden;
+}
+
+a:hover { background-color: #777; }
+
+a > p {
+  position: absolute;
+  font-family: monospace;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 20px;
+  text-shadow: 2px 2px 2px black;
+}
+
+img {
+  width: inherit;
+  filter: brightness(.4) blur(2px);
+}
+    </style>
+  </head>
+  <body>
+    <div>
+      <section>
+        <h2>Projetos com ESP32</h2>
+        <div class=container>
+          <a href=https://wokwi.com/projects/426156036988950529>
+            <img src=/sensor-de-proximidade.jpg>
+            <p>Sensor de Proximidade</p>
+          </a>
+          <a href=https://wokwi.com/projects/426177816895431681>
+            <img src=/sensor-de-movimento-pir.jpg>
+            <p>Sensor de Movimento</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>
