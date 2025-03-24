@@ -62,7 +62,7 @@ a {
   width: 330px;
   height: 200px;
   overflow: hidden;
-  transition: .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: .3s ease-out;
 }
 
 a:hover {
@@ -70,7 +70,7 @@ a:hover {
 }
 
 a:hover > p {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 a:hover > img {
@@ -85,13 +85,13 @@ a > p {
   text-align: center;
   line-height: 20px;
   text-shadow: 2px 2px 2px black;
-  transition: font-size .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: font-size .1s ease-out;
 }
 
 img {
   width: inherit;
   filter: brightness(.4) blur(2px);
-  transition: width .3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+  transition: width .3s ease-out;
 }
     </style>
   </head>
