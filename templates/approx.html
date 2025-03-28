@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector de Proximidade</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+        }
+        #detector {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            transition: background-color 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <div id="detector"></div>
+    <script>
+        const detector = document.getElementById('detector');
+        
+        window.addEventListener('mousemove', (event) => {
+            // Calcula o centro do círculo em relação à janela
+            const rect = detector.getBoundingClientRect();
+            const centerX = rect.left + rect.width / 2;
+            const centerY = rect.top + rect.height / 2;
+
+            // Calcula a distância entre o mouse e o centro do círculo
+            const distance = Math.sqrt(
+                Math.pow(event.clientX - centerX, 2) + Math.pow(event.clientY - centerY, 2)
+            );
+
+            // Define o alcance máximo para mudar a cor (aumente ou reduza conforme necessário)
+            const maxDistance = 300; // 300px
+            const intensity = Math.max(0, 1 - distance / maxDistance);
+
+            // Altera a cor do círculo baseado na intensidade
+            const red = Math.floor(255 * (1 - intensity));
+            const green = Math.floor(255 * intensity);
+
+            detector.style.backgroundColor = `rgb(${red}, ${green}, 0)`;
+        });
+    </script>
+</body>
+</html>
+

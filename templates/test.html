@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gradient Color Change</title>
+  <style>
+    #myDiv {
+      width: 300px;
+      height: 300px;
+      background: green;
+      margin: 100px auto;
+      position: relative;
+      border: 2px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="myDiv"></div>
+
+  <script>
+    const div = document.getElementById('myDiv');
+
+    div.addEventListener('mousemove', (e) => {
+      const rect = div.getBoundingClientRect();
+
+      // Get the mouse position relative to the div
+      const mouseX = e.clientX - rect.left;
+      const mouseY = e.clientY - rect.top;
+
+      // Calculate the distance between the mouse and the center of the div
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const distanceX = Math.abs(mouseX - centerX);
+      const distanceY = Math.abs(mouseY - centerY);
+
+      const maxDistance = Math.sqrt(Math.pow(centerX, 2) + Math.pow(centerY, 2)); // Maximum possible distance
+      const currentDistance = Math.sqrt(Math.pow(distanceX, 2) + Math.pow(distanceY, 2)); // Current distance
+
+      // Calculate the color gradient based on the distance
+      const ratio = Math.max(0, 1 - currentDistance / maxDistance); // Ensure ratio is within [0, 1]
+      const red = Math.round(255 * ratio);
+      const green = Math.round(255 * (1 - ratio));
+
+      // Apply the gradient color to the div
+      div.style.backgroundColor = `rgb(${red}, ${green}, 0)`;
+    });
+
+    // Reset the color when the mouse leaves the div
+    div.addEventListener('mouseleave', () => {
+      div.style.backgroundColor = 'green';
+    });
+  </script>
+</body>
+</html>
+

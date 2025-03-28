@@ -4,112 +4,50 @@
   <head>
     <meta charset=utf-8>
     <meta name=viewport content="width=device-width, initial-scale=1">
-    <link rel=preload as=image href={% static "sensor-de-proximidade.jpg" %}>
-    <link rel=preload as=image href={% static "sensor-de-movimento-pir.jpg" %}>
-    <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #121212;
-  color: #fff;
-  font-family: "Roboto";
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5;
-  letter-spacing: 0.00938em;
-  -webkit-text-size-adjust: #121212;
-}
-
-h2 { text-align: center; }
-
-section {
-  max-width: 900px;
-  margin: 32px auto 64px;
-  font-family: sans-serif;
-}
-
-.container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin: 0 auto;
-  margin-top: 50px;
-  max-width: 260px;
-}
-
-@media screen and (min-width: 620px) {
-  .container { max-width: 620px; }
-}
-
-@media screen and (min-width: 920px) {
-  .container { max-width: 920px; }
-}
-
-a {
-  background-color: #404041;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  color: #fff;
-  margin: 8px 16px;
-  padding: 2px;
-  width: 330px;
-  height: 200px;
-  overflow: hidden;
-  transition: .3s ease-out;
-}
-
-a:hover {
-  box-shadow: 3px 3px 10px #000;
-}
-
-a:hover > p {
-  font-size: 1.3rem;
-}
-
-a:hover > img {
-  width: calc(100% + 25px);
-}
-
-a > p {
-  position: absolute;
-  font-family: monospace;
-  font-size: 1.1rem;
-  font-weight: 700;
-  text-align: center;
-  line-height: 20px;
-  text-shadow: 2px 2px 2px black;
-  transition: font-size .1s ease-out;
-}
-
-img {
-  width: inherit;
-  filter: brightness(.4) blur(2px);
-  transition: width .3s ease-out;
-}
-    </style>
+    <link rel=preload as=image href={% static "images/sensor-de-proximidade.jpg" %}>
+    <link rel=preload as=image href={% static "images/sensor-de-movimento-pir.jpg" %}>
+    <link rel="stylesheet" href="../static/styles/index_style.css">
+    <title>Integrated System - Home</title>
   </head>
-  <body>
-    <div>
-      <section>
-        <h2>Projetos com ESP32</h2>
-        <div class=container>
-          <a href=https://wokwi.com/projects/426156036988950529>
-            <img src={% static "sensor-de-proximidade.jpg" %}>
-            <p>Sensor de Proximidade</p>
-          </a>
-          <a href=https://wokwi.com/projects/426177816895431681>
-            <img src={% static "sensor-de-movimento-pir.jpg" %}>
-            <p>Sensor de Movimento</p>
-          </a>
+  <body style="overflow-x: hidden">
+    <header id="block-header">
+        <div id="div-logo-header">
+          <a href="/menu" id="text-logo-header">Integrated System</a>
+        </div>
+        <div id="div-link-header">
+          <a href="https://espressif.com" class="link-header">Especificação ESP32</a>
+          <a href="https://docs.micropython.org" class="link-header">Introdução Micro-Python</a>
+        </div>
+    </header>
+    <div id="block-nav" style="width: 700px; top: 28px; left: 300px; position: fixed; background-color: #156A8A; box-shadow: 9px 6px 12px #0005 ">
+      <nav id="nav-item">
+        <a href="#section-motion-sensor" class="link-nav">Sensor de Movimento</a>
+        <a href="#section-proximity-sensor" class="link-nav">Sensor de Proximidade</a>
+        <a href="/motion-sensor" class="link-nav">Tela de Movimento</a>
+        <a href="/apprx-sensor" class="link-nav">Tela de Proximidade</a>
+      </nav>
+    </div>
+    <main id="block-main">
+      <section id="section-motion-sensor">
+        <div id="div-motion-sensor">
+          <img id="img-motion-sensor" src="/static/images/sensor-movimento.jpg" style="width: 625px" alt="Sensor de Movimento">
+          <p id="text-motion-sensor" style="margin-rigth: 20px; margin-left: 20px">O código implementa um sistema de monitoramento reativo baseado na detecção de movimento, onde um sensor PIR identifica variações de infravermelho no ambiente, acionando um LED e um relé sempre que movimento é detectado. Esse comportamento simula sistemas de segurança ou automação, permitindo a ativação de dispositivos conforme a necessidade. Para evitar oscilações constantes, há um pequeno atraso após a detecção, garantindo estabilidade no funcionamento. Além disso, mensagens são exibidas no console para fornecer um feedback contínuo, tornando o sistema mais transparente e fácil de monitorar.</p>
+        </div> 
+      </section>
+      <section id="section-proximity-sensor">
+        <div id="div-proximity-sensor">
+          <div id="div-text-proximity-sensor">
+            <p id="text-proximity-sensor">
+            O código implementa um sistema de medição de distância baseado em um sensor ultrassônico, onde um sinal é enviado e o tempo de resposta é usado para calcular a distância até um objeto. Com base nessa distância, a intensidade de um LED PWM é ajustada, simulando um efeito de proximidade onde a luz se torna mais intensa à medida que o objeto se aproxima. Além disso, um relé é ativado quando a distância é menor que um determinado limite, permitindo a automação de dispositivos conforme a proximidade de um objeto. Esse sistema pode ser aplicado em diversas áreas, como robótica, automação residencial e sistemas de alerta.
+            </p>
+          </div>
+          
+          <img id="img-proximity-sensor" src="/static/images/sensor-proximidade.jpg" alt="Sensor de Proximidade">
         </div>
       </section>
-    </div>
+    </main>
+    <footer id="block-footer">
+      <p id="text-footer">Todos os direitos reservados <strong>Integrated System</strong> &copy;</p>
+    </footer>
   </body>
 </html>

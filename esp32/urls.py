@@ -20,6 +20,9 @@ from django.urls import path
 from django.shortcuts import render
 
 urlpatterns = [
+    path('menu', (lambda req: render(req, "index2.html"))),
+    path('apprx-sensor', (lambda req: render(req, "test.html"))),
+    path('motion-sensor', (lambda req: render(req, "motion-sensor.html"))),
     path('', (lambda req: render(req, "index.html"))),
     path('admin/', admin.site.urls),
 ]
